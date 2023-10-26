@@ -248,7 +248,6 @@ def place_booking():
                     '''AWAY TEAM: ''',awayteam,
                     '''DATE: ''',matchdate,
                     '''VENUE/STADIUM: ''',venue)
-              print(dictcheck)
               print('''BOOKED TICKETS
                     Adult-Priority: x''',dictcheck['Adult(Priority)'],''' for ''',purchaseddict['Adult(Priority)'],'''$
 
