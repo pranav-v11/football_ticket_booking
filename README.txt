@@ -95,6 +95,33 @@ For the program to run directly with the original code, the following schema obj
 
     (NOTE: if you are using a different table name, change the table name in the code as per requirement)
 
+----------------------------------------------------------------------------------------------------
+
+
+SAMPLE DATA FOR CS PROJECT (TICKETS, FBMATCHES AND FBLEAGUES TABLES)
+
+
+
+TICKETS TABLE: 
+insert into ticket/<tablename> values(0, 'Adult(Priority)'),(1, 'Child(Priority)'),(2, 'Adult(Economy)'),(3, 'Child(Economy)');
+
+
+
+FBMATCHES (Match Data) TABLE:
+
+Premier League entries (3 samples)
+insert into fbmatches/<tablename> values(1, 'Premier League', 'Liverpool', 'Everton', '2024-12-25 00:30:00' 'Anfield', 500, 400, 350, 265, 'EPLMD9G1'),(2, 'Premier League', 'Chelsea', 'Arsenal', '2024-12-25 00:30:00', 'Stamford Bridge', 700, 600, 300, 250, 'EPLMD9G2'),(1, 'Premier League', 'Newcastle', 'Crystal Palace', '2023-10-21 00:30:00', 'St. James Park', 550, 510, 450, 400, 'EPLMD9G3');
+
+LaLiga entries (3 samples)
+insert into fbmatches/<tablename. values(2, 'La Liga', 'Real Sociedad', 'Mallorca', '2024-12-25', 'Anoeta', 400, 350, 200, 100, 'LLMD10G1'),(2, 'La Liga', 'Sevilla', 'Real Madrid', '2024-12-25', 'Ramon Sanchez Pizjuan', 600, 550, 500, 425, 'LLMD10G2'),(2, 'La Liga', 'Barcelona', 'Athletic Club', '2023-10-21', 'Estadi Olimpic Lluis Companys', 400, 380, 260, 175, 'LLMD10G3');
+
+MLS entries (3 samples)
+insert into fbmatches/<tablename. values(3, 'MLS', 'Inter Miami', 'Charlotte', '2024-12-25', 'DRV PNK Stadium', 400, 350, 200, 100, 'MLSMD8G1'),(3, 'MLS', 'New York City', 'Chicago', '2024-12-25', 'Citi Field', 600, 550, 500, 425, 'MLSMD8G2'),(3, 'MLS', 'Cincinnati', 'Atlanta United', '2023-10-21', 'TQL Stadium', 400, 380, 260, 175, 'MLSMD8G3');
+
+
+
+FBLEAGUES (League Data) TABLE:
+insert into fbleagues/<tablename> values(1, 'Premier League', 'England'),(2, 'La Liga', 'Spain'),(3, 'MLS', 'USA');
      
 
 

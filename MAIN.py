@@ -3,7 +3,7 @@ import tkinter
 from tkinter import ttk 
 from tkinter import *
 import mysql.connector
-import datetime 
+from datetime import datetime 
 
 
 mycon = mysql.connector.connect(host="<hostname>", user="<username>", password="<password>", database="<databasename>", auth_plugin = "mysql_native_password")
@@ -309,13 +309,15 @@ def booking_menu():
          print('''Please enter the LeagueID of the League whose matches you would like to view
              OR ENTER '0' to view matches accross ALL LEAGUES''')
          intchoice3 = int(input("Enter your choice: "))
+         now = datetime.now()
          if intchoice3 == 0:
             leaguetitle = "All"
 
             print("Displaying all available matches in popup")
             r.title(headername)
             r.geometry("1280x720")
-            cs.execute("SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches")
+            querye1 = "SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE MatchDate >= %s"
+            cs.execute(querye1, (now,))
             tree = ttk.Treeview(r, selectmode='browse',height=35)
             tree['show']='headings' 
             s = ttk.Style(r)
@@ -358,7 +360,8 @@ def booking_menu():
           print("Displaying all available Premier League matches in popup")
           r.title(headername)
           r.geometry("1280x720")
-          cs.execute("SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 1")
+          querye2 = "SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 1 AND MatchDate >= %s"
+          cs.execute(querye2, (now,))
           tree = ttk.Treeview(r, selectmode='browse',height=10)
           tree['show']='headings'
           s = ttk.Style(r)
@@ -401,7 +404,8 @@ def booking_menu():
           print("Displaying all available LaLiga matches in popup")
           r.title(headername)
           r.geometry("1280x720")
-          cs.execute("SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 2")
+          querye3 = "SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 2 AND MatchDate >= %s"
+          cs.execute(querye2, (now,))
           tree = ttk.Treeview(r, selectmode='browse',height=10)
           tree['show']='headings' 
           s = ttk.Style(r)
@@ -444,7 +448,8 @@ def booking_menu():
           print("Displaying all available Lajor League Soccer(MLS) matches in popup")
           r.title(headername)
           r.geometry("1280x720")
-          cs.execute("SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 3")
+          querye4 = "SELECT MatchID, LeagueName, HomeTeam, AwayTeam, MatchDate, MatchVenue FROM fbmatches WHERE LeagueID = 3 AND MatchDate >= %s"
+          cs.execute(querye2, (now,))
           tree = ttk.Treeview(r, selectmode='browse',height=15)
           tree['show']='headings' 
           s = ttk.Style(r)
@@ -647,3 +652,6 @@ def main_menu():
  
 #running the application-------------------------------------------------------------------------------------------------------------
 main_menu()  
+
+#closing connection------------------------------------------------------------------------------------------------------------------
+mycon.close()
